@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
     
-    let images = [UIImage(named: "images1"),UIImage(named: "images3"),UIImage(named: "images2"),UIImage(named: "images4")]
+    let images = [UIImage(named: "images1"),UIImage(named: "images4"),UIImage(named: "images2"),UIImage(named: "images3")]
     var imageIndex = 0
     var timer:Timer!
 
