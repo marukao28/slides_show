@@ -31,11 +31,20 @@ class ViewController: UIViewController {
     imageView.image = images[0]
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // segue から遷移先のResultViewControllerを取得する
-        let resultViewController:ResultViewController = segue.destination as!ResultViewController
-        resultViewController.scopeImage = imageView.image
-    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // segue から遷移先のResultViewControllerを取得する
+            let resultViewController:ResultViewController = segue.destination as!ResultViewController
+            resultViewController.scopeImage = imageView.image
+            if self.timer != nil {
+                timer.invalidate()
+                startstopImage.setTitle("再生", for: .normal)
+                timer=nil
+                nextImage.isEnabled = true
+                nextImage.setTitleColor(UIColor.darkText, for: .normal)
+                backImage.isEnabled = true
+                backImage.setTitleColor(UIColor.darkText, for: .normal)
+            }
+        }
     
     @IBAction func nextImage(_ sender: Any) {
         if imageIndex < 3 {
